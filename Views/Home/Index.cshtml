@@ -1,0 +1,17 @@
+﻿@using CallOfDuty.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model Data
+
+
+@using (Html.BeginForm("Search", "Home", "Get"))
+{
+    <label><img src="https://images.novatech.co.uk/games/cod-warzone/logo/cod-warzone-banner.png" alt="CODMW"></label>
+    <input type="text" name="username" placeholder="Search for Activision ID..." class="form-control" value="" />
+    <input type="submit" value="Search" class="btn btn-primary" />
+    <link rel="stylesheet" href="~/css/Searchbar.css">
+
+}

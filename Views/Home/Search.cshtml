@@ -1,0 +1,44 @@
+﻿@using CallOfDuty.Models
+@model Properties
+
+<h1 style="color:white">Player Stats</h1>
+<link rel="stylesheet" href="~/css/Searchpage.css">
+<table class="table">
+    <tr>
+        <th style="color:white; width:25%;">Wins</th>
+        <th style="color:white; width:25%;">Kills</th>
+        <th style="color:white; width:25%;">Deaths</th>
+        <th style="color:white; width:25%;">K/D Ratio</th>
+        <th style="color:white; width:25%;">Objective Time</th>
+        <th style="color:white; width:25%;">Contracts</th>
+        <th style="color:white; width:25%;">Revives</th>
+        <th style="color:white; width:25%;">Downs</th>
+        <th style="color:white; width:25%;">Score</th>
+        <th style="color:white; width:25%;">Top 25</th>
+        <th style="color:white; width:25%;">Top 10</th>
+        <th style="color:white; width:25%;">Top 5</th>
+        <th style="color:white; width:25%;">Score Per Minute</th>
+        <th style="color:white; width:25%;">Time Played</th>
+        <th style="color:white; width:25%;">Games Played</th>
+    </tr>
+    <tr>
+        <td style="color:white; width:25%;">@Model.wins</td>
+        <td style="color:white; width:25%;">@Model.kills</td>
+        <td style="color:white; width:25%;">@Model.deaths</td>
+        <td style="color:white; width:25%;">@Model.objTime</td>
+        <td style="color:white; width:25%;">@Model.contracts</td>
+        <td style="color:white; width:25%;">@Model.revives</td>
+        <td style="color:white; width:25%;">@Model.downs</td>
+        <td style="color:white; width:25%;">@Model.score</td>
+        <td style="color:white; width:25%;">@Model.topTwentyFive</td>
+        <td style="color:white; width:25%;">@Model.topTen</td>
+        <td style="color:white; width:25%;">@Model.topFive</td>
+        <td style="color:white; width:25%;">@Model.scorePerMinute</td>
+        <td style="color:white; width:25%;">@Model.timePlayed</td>
+        <td style="color:white; width:25%;">@Model.gamesPlayed</td>
+
+    </tr>
+
+</table>
+
+<div style="display: block"></div>
