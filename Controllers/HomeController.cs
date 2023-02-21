@@ -20,62 +20,27 @@ namespace CallOfDuty.Controllers
 
         public IActionResult Index()
         {
-            var player = new Data();
+            var root = new Root();
 
-            return View(player);
+            return View(root);
         }
 
-        public IActionResult Search(Data player)
+        public IActionResult Search(Root form)
         {
-            var client = new RestSharp.RestClient($"https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/{player.username}/psn");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("X-RapidAPI-Key", "e26ce70479msh862bb9d83cedcf3p16d800jsnb50c1d29c253");
+            //var client = new RestClient($"https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/{form.data.username}/psn");
+            //var request = new RestRequest(Method.GET);
+            //request.AddHeader("X-RapidAPI-Key", "e26ce70479msh862bb9d83cedcf3p16d800jsnb50c1d29c253");
+            //request.AddHeader("X-RapidAPI-Host", "call-of-duty-modern-warfare.p.rapidapi.com");
+            //var response = client.Execute(request).Content;
+            //var root = JsonConvert.DeserializeObject<Root>(response);
+
+            var client = new RestClient("https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/Amartin743/psn");
+            var request = new RestRequest();
+            request.AddHeader("X-RapidAPI-Key", "074ffd9f62mshfab1a752b7e2342p1f409fjsnbc7bc16069e0");
             request.AddHeader("X-RapidAPI-Host", "call-of-duty-modern-warfare.p.rapidapi.com");
             var response = client.Execute(request).Content;
             var root = JsonConvert.DeserializeObject<Root>(response);
-
             return View(root);
-            #region Jonathan Will's sandbox
-            //IRestResponse response = client.Execute(request);
-
-            //var brObj = JObject.Parse(response.Content).GetValue("br");
-
-            //var soldierWins = brObj ["properties"]["wins"];
-            //var soldierKills = brObj["kills"];
-            //var soldierKdratio = brObj["kdRatio"];
-            //var soldierDowns = brObj["downs"];
-            //var soldierTopTwentyFive = brObj["topTwentyFive"];
-            //var soldierObjtime = brObj["objTime"];
-            //var soldierTopTen = brObj["topTen"];
-            //var soldierContracts = brObj["contracts"];
-            //var soldierRevives = brObj["revives"];
-            //var soldierTopFive = brObj["topFive"];
-            //var soldierScore = brObj["score"];
-            //var soldierTimeplayed = brObj["timePlayed"];
-            //var soldierGamesplayed = brObj["gamesPlayed"];
-            //var soldierScoreperminute = brObj["scorePerMinute"];
-            //var soldierDeaths = brObj["deaths"];
-
-            //var soldier = new Soldier()
-            //{
-            //    Wins = (double)soldierWins,
-            //    Kills = (double)soldierKills,
-            //    KdRatio = (double)soldierKdratio,
-            //    Downs = (double)soldierDowns,
-            //    TopTwentyFive = (double)soldierTopTwentyFive,
-            //    ObjTime = (double)soldierObjtime,
-            //    TopTen = (double)soldierTopTen,
-            //    Contracts = (double)soldierContracts,
-            //    Revives = (double)soldierRevives,
-            //    TopFive = (double)soldierTopFive,
-            //    Score = (double)soldierScore,
-            //    TimePlayed = (double)soldierTimeplayed,
-            //    GamesPlayed = (double)soldierGamesplayed,
-            //    ScorePerMinute = (double)soldierScoreperminute,
-            //    Deaths = (double)soldierDeaths,
-            //};
-
-            #endregion
         }
 
         public IActionResult Privacy()
