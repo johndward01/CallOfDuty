@@ -21,20 +21,12 @@ namespace CallOfDuty.Controllers
         public IActionResult Index()
         {
             var root = new Root();
-
             return View(root);
         }
 
         public IActionResult Search(Root form)
         {
-            //var client = new RestClient($"https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/{form.data.username}/psn");
-            //var request = new RestRequest(Method.GET);
-            //request.AddHeader("X-RapidAPI-Key", "e26ce70479msh862bb9d83cedcf3p16d800jsnb50c1d29c253");
-            //request.AddHeader("X-RapidAPI-Host", "call-of-duty-modern-warfare.p.rapidapi.com");
-            //var response = client.Execute(request).Content;
-            //var root = JsonConvert.DeserializeObject<Root>(response);
-
-            var client = new RestClient("https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/Amartin743/psn");
+            var client = new RestClient($"https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/{form.data.username}/psn");
             var request = new RestRequest();
             request.AddHeader("X-RapidAPI-Key", "074ffd9f62mshfab1a752b7e2342p1f409fjsnbc7bc16069e0");
             request.AddHeader("X-RapidAPI-Host", "call-of-duty-modern-warfare.p.rapidapi.com");
